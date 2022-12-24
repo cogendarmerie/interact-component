@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+:root
+{
+    --Orange: hsl(25, 97%, 53%);
+    --White: hsl(0, 0%, 100%);
+    --Light-Grey: hsl(217, 12%, 63%);
+    --Medium-Grey: hsl(216, 12%, 54%);
+    --Dark-Blue: hsl(213, 19%, 18%);
+    --Very-Dark-Blue: hsl(216, 12%, 8%);
+}
+
+body
+{
+    font-size: 15px;
+    font-family: "Overpass", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    background-color: var(--Very-Dark-Blue);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/*begin::card*/
+section.card
+{
+    border-radius: 16px;
+    background: #252E37;
+    background: -webkit-radial-gradient(top, #252E37, #171E26);
+    background: -moz-radial-gradient(top, #252E37, #171E26);
+    background: radial-gradient(to bottom, #252E37, #171E26);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22vw;
+    height: 50vh;
+}
+
+section.card > div:nth-child(2) > h1
+{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--Light-Grey);
+    margin-bottom: 16px;
+}
+
+section.card > div:nth-child(2) > p
+{
+    margin-top: 0;
+    color: var(--Light-Grey);
+}
+
+section.card .rating
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section.card .rating > p
+{
+    height: 52px;
+    width: 52px;
+    border-radius: 100rem;
+    background-color: var(--Dark-Blue);
+    color: var(--Light-Grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+section.card .rating > p:hover
+{
+    color: var(--White);
+    background-color: var(--Orange);
+}
+
+section.card .rating > p#active-rating
+{
+    background-color: var(--Light-Grey);
+    color: var(--White);
+}
+
+/*begin::star*/
+.star
+{
+    height: 52px;
+    width: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Dark-Blue);
+    border-radius: 100rem;
+}
+/*end::star*/
+
+
+@media screen and (max-width: 800px)
+{
+    section.card
+    {
+        width: 75vw;
+    }
+}
+/*end::card*/
+
+/*begin::thank-you*/
+.card#thank-you
+{
+    text-align: center;
+    height: auto;
+}
+
+.card#thank-you > div
+{
+    margin-top: 1.5rem;
+}
+
+.card#thank-you .rating-result
+{
+    padding: 8px 24px;
+    background-color: var(--Dark-Blue);
+    border-radius: 100rem;
+    color: var(--Orange);
+    font-weight: 300;
+    display: inline;
+    font-size: 14px;
+}
+
+.card#thank-you > div:last-child
+{
+    color: var(--Light-Grey);
+}
+
+.card#thank-you > div:last-child h1
+{
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card#thank-you > div:last-child p
+{
+    margin-top: 0;
+}
+/*end::thank-you*/
+
+/*begin::button*/
+button
+{
+    padding: 10px 48px;
+    background-color: var(--Orange);
+    color: var(--White);
+    border-radius: 100rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Overpass";
+    margin-top: 2vh;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+button:hover
+{
+    background-color: var(--White);
+    color: var(--Orange);
+}
+/*end::button*/
+
+/*begin::step*/
+section[data-status="hide"]
+{
+    display: none;
+    opacity: 0;
+}
+
+section[data-status="show"]
+{
+    display: flex;
+    opacity: 1;
+}
+
+.hide
+{
+    animation: hide .8s;
+}
+
+.show
+{
+    animation: show 1s;
+}
+
+@keyframes hide
+{
+    0%
+    {
+        opacity: 1;
+        transform: none;
+    }
+    100%
+    {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+}
+
+@keyframes show
+{    
+    0%
+    {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+        transform: none;
+    }
+}
+/*end::step*/
